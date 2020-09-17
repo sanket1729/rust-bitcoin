@@ -428,9 +428,9 @@ pub mod all {
     /// Synonym for OP_RETURN
     pub const OP_RETURN_191: All = All {code: 0xbf};
     /// Synonym for OP_RETURN
-    pub const OP_RETURN_192: All = All {code: 0xc0};
+    pub const OP_CHECKSIGFROMSTACK: All = All {code: 0xc0};
     /// Synonym for OP_RETURN
-    pub const OP_RETURN_193: All = All {code: 0xc1};
+    pub const OP_CHECKSIGFROMSTACKVERIFY: All = All {code: 0xc1};
     /// Synonym for OP_RETURN
     pub const OP_RETURN_194: All = All {code: 0xc2};
     /// Synonym for OP_RETURN
@@ -649,6 +649,8 @@ impl fmt::Debug for All {
             all::OP_CHECKMULTISIGVERIFY => write!(f, "CHECKMULTISIGVERIFY"),
             all::OP_CLTV => write!(f, "CLTV"),
             all::OP_CSV => write!(f, "CSV"),
+            all::OP_CHECKSIGFROMSTACK => write!(f, "CHECKSIGFROMSTACK"),
+            all::OP_CHECKSIGFROMSTACKVERIFY => write!(f, "CHECKSIGFROMSTACKVERIFY"),
             All {code: x} if x >= all::OP_NOP1.code && x <= all::OP_NOP10.code => write!(f, "NOP{}", x - all::OP_NOP1.code + 1),
             All {code: x} => write!(f, "RETURN_{}", x),
         }
@@ -803,7 +805,7 @@ ordinary_opcode! {
     // crypto
     OP_RIPEMD160, OP_SHA1, OP_SHA256, OP_HASH160, OP_HASH256,
     OP_CODESEPARATOR, OP_CHECKSIG, OP_CHECKSIGVERIFY,
-    OP_CHECKMULTISIG, OP_CHECKMULTISIGVERIFY
+    OP_CHECKMULTISIG, OP_CHECKMULTISIGVERIFY, OP_CHECKSIGFROMSTACK, OP_CHECKSIGFROMSTACKVERIFY
 }
 
 impl Ordinary {
@@ -1027,8 +1029,8 @@ mod tests {
         roundtrip!(unique, OP_RETURN_189);
         roundtrip!(unique, OP_RETURN_190);
         roundtrip!(unique, OP_RETURN_191);
-        roundtrip!(unique, OP_RETURN_192);
-        roundtrip!(unique, OP_RETURN_193);
+        roundtrip!(unique, OP_CHECKSIGFROMSTACK);
+        roundtrip!(unique, OP_CHECKSIGFROMSTACKVERIFY);
         roundtrip!(unique, OP_RETURN_194);
         roundtrip!(unique, OP_RETURN_195);
         roundtrip!(unique, OP_RETURN_196);
