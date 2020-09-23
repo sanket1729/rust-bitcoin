@@ -428,11 +428,11 @@ pub mod all {
     /// Synonym for OP_RETURN
     pub const OP_RETURN_191: All = All {code: 0xbf};
     /// Synonym for OP_RETURN
-    pub const OP_CHECKSIGFROMSTACK: All = All {code: 0xc0};
+    pub const OP_RETURN_192: All = All {code: 0xc0};
     /// Synonym for OP_RETURN
-    pub const OP_CHECKSIGFROMSTACKVERIFY: All = All {code: 0xc1};
+    pub const OP_CHECKSIGFROMSTACK: All = All {code: 0xc1};
     /// Synonym for OP_RETURN
-    pub const OP_RETURN_194: All = All {code: 0xc2};
+    pub const OP_CHECKSIGFROMSTACKVERIFY: All = All {code: 0xc2};
     /// Synonym for OP_RETURN
     pub const OP_RETURN_195: All = All {code: 0xc3};
     /// Synonym for OP_RETURN
